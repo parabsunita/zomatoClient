@@ -1,38 +1,168 @@
-.App {
-  text-align: center;
+/* Header styles */
+.navbar {
+  background-color: #ff5757 !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar-brand {
+  color: white;
+  font-size: 24px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Restaurant card styles */
+.card {
+  border: none;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card-title {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.card-text {
+  color: #666;
+  font-size: 14px;
+}
+.carousel-inner {
+  height: 20vh;
+}
+/* SearchBar.css */
+.search-bar {
+  position: relative;
+}
+
+.search-input {
+  padding: 10px 40px; /* Adjust padding based on icon size */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.search-icon,
+.microphone-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2em; /* Adjust icon size */
+}
+
+.search-icon {
+  left: 10px; /* Adjust icon position */
+}
+
+.microphone-icon {
+  right: 10px; /* Adjust icon position */
+}
+/* LocationProfileSection.css */
+.location-profile-section {
+  display: flex;
+  align-items: center;
+  height: 10vh;
+}
+
+.location,
+.profile {
+  margin: 0 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+.location svg,
+.profile svg {
+  font-size: 1.2em; /* Adjust icon size */
+  margin-right: 5px;
+}
+.location p {
+  margin-bottom: 0;
+}
+.card-body h5 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.like {
+  position: absolute;
+  right: 0;
+  font-size: 1.5rem;
+  margin: 0.5rem;
+  z-index: 1;
+}
+/* RestaurantDetails.css */
+
+.restaurant-details {
+  padding: 20px;
+
+  margin: 20px;
+}
+.restaurant-address {
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+.restaurant-name {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.info-label {
+  font-weight: bold;
+}
+
+.cuisines {
+  margin-top: 10px;
+}
+
+/* Add more styling as needed */
+/* Styling for ItemList */
+.item-list {
+  padding: 20px;
+}
+
+/* Styling for ItemDetails */
+.item-details {
+  display: flex;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.item-rating {
+  display: flex;
+  align-items: center;
+}
+
+.item-image {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: flex-end;
+}
+
+.item-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.add-button {
+  background-color: #007bff;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
 }
