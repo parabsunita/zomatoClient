@@ -5,6 +5,7 @@ import { Navigate, useNavigate } from "react-router";
 import LocationProfileSection from "./LocationProfileSection ";
 import axios from "axios";
 import SearchBar from "./SearchBar";
+import Footer from "./Footer";
 const RestaurantList = () => {
   const [restaurants, setRestaurants] = useState([]);
   const navigate = useNavigate();
@@ -44,6 +45,7 @@ const RestaurantList = () => {
           </div>
         ))}
       </div>
+      <Footer></Footer>
     </>
   );
 };

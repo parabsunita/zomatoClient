@@ -101,7 +101,6 @@ const RestaurantDetails = () => {
       <div className="restaurant-address">
         {Math.round(distance)} Km | {restaurant.address}
       </div>
-      <div>{restaurant._id}</div>
       <div className="cuisines">
         <p>Cuisines: {restaurant.cuisines}</p>
       </div>

@@ -12,6 +12,10 @@ import {
 
 import SearchBar from "./components/SearchBar";
 import RestaurantDetails from "./components/RestaurantDetails";
+import Cart from "./components/Cart";
+import Footer from "./components/Footer";
+import SignUp from "./components/SignUp";
+import Login from "./components/Login";
 
 const App = () => {
   return (
@@ -23,10 +27,14 @@ const App = () => {
           <Routes>
             <Route path="/" exact element={<RestaurantList />} />
             <Route path="/restaurant/:id" element={<RestaurantDetails />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login></Login>}></Route>
           </Routes>
         </Router>
         {/* Add more routes for other pages */}
       </div>
+      <Footer></Footer>
     </div>
   );
 };

@@ -136,7 +136,6 @@
 }
 
 .item-header {
-  display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
@@ -146,7 +145,10 @@
   display: flex;
   align-items: center;
 }
-
+.item-info p {
+  margin-bottom: 0;
+  font-size: 12px;
+}
 .item-image {
   flex: 1;
   display: flex;
@@ -156,13 +158,83 @@
 
 .item-image img {
   max-width: 100%;
-  height: auto;
+  height: 20vh;
 }
-
+.item-image button {
+  margin: 0 auto;
+}
+.item-list ul {
+  list-style: none;
+}
+.cart ul {
+  list-style: none;
+  padding-left: 0;
+}
 .add-button {
   background-color: #007bff;
   color: white;
   border: none;
   padding: 8px 15px;
   cursor: pointer;
+  margin-top: -20px !important;
+  border-radius: 14px;
+}
+.nav-item {
+  display: inline-block;
+  color: red;
+}
+.navbar {
+  background-color: transparent;
+}
+footer {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.discount {
+  background-color: #e7eff9;
+  background-image: linear-gradient(315deg, #e7eff9 0%, #cfd6e6 74%);
+  font-size: 14px;
+  font-weight: 600;
+  color: blue;
+}
+.login-container {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #ccc;
+  height: 75vh;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+.loginContainer input {
+  padding: 0.3rem;
 }
