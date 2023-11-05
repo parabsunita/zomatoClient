@@ -48,7 +48,7 @@ const Signin = ({ setToken }) => {
         if (res.data.message === "Login successfull") {
           setToken(false);
           localStorage.setItem("AuthKey", res.data.data.token);
-          navigate("/");
+          navigate("/dashboard");
         }
       });
   };
@@ -59,14 +59,9 @@ const Signin = ({ setToken }) => {
 
   return (
     <div className="w-100">
-      <div className="float-right loginContainer p-4 row">
+      <div className="col-4 float-right m-5 p-4 loginContainer row">
         <div className="col-12">
-          <h2
-            className="text-center text-danger text-decoration-underline w-100"
-            style={{ fontStyle: "oblique" }}
-          >
-            Sign In
-          </h2>
+          <h2>Sign In</h2>
         </div>
         <br />
         <form className="w-100" onSubmit={handleSignin}>
@@ -99,22 +94,16 @@ const Signin = ({ setToken }) => {
             {errors.password && <div className="error">{errors.password}</div>}
           </div>
           <div className="col-12 mt-3">
-            <button
-              className="bg-danger float-end float-right rounded-3  py-1"
-              type="submit"
-            >
+            <button className="float-right" type="submit">
               Sign In
             </button>
           </div>
         </form>
         <div className="col-12 mt-3 ">
-          <button
-            className="bg-danger float-end float-right rounded-3 py-1"
-            onClick={handleSignUp}
-          >
+          <button className="float-right ml-2" onClick={handleSignUp}>
             Sign Up
           </button>
-          <p className="float-end p-1 ">Don't have an account? </p>
+          <p className="float-right">Don't have an account? </p>
         </div>
       </div>
     </div>

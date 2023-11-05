@@ -14,6 +14,7 @@ const Cart = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
   const [customValue, setCustomValue] = useState("");
+  const [amount, setAmount] = useState(0);
   const [dropdownValues, setDropdownValues] = useState([
     "Option 1",
     "Option 2",
@@ -88,12 +89,47 @@ const Cart = () => {
       .then((data) => {
         setCartItems(data.data.cart[0].items);
         settotalPrice(data.data.totalPrice);
+        setAmount(data.data.totalPrice);
         setUserAddress(data.data.userAddress.address);
         console.log(data);
       })
       .catch((error) =>
         console.error("Error fetching restaurant data:", error)
       );
+  };
+
+  const handlePayment = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/api/client/payment/createpayment",
+        { totalPrice }
+      );
+      const { data } = response;
+      const options = {
+        key: "rzp_test_B9Kp1l2gfycDVq",
+        amount: data.amount,
+        currency: data.currency,
+        name: "Zomato",
+        description: "Payment for your order",
+        order_id: data.id,
+        handler: function (response) {
+          // Handle successful payment
+          console.log(response);
+        },
+        prefill: {
+          name: "User Name",
+          email: "user@example.com",
+          contact: "1234567890",
+        },
+        theme: {
+          color: "#528FF0",
+        },
+      };
+      const rzp1 = new window.Razorpay(options);
+      rzp1.open();
+    } catch (error) {
+      console.error(error);
+    }
   };
   useEffect(() => {
     // Fetch restaurant items from Zomato's API
@@ -152,6 +188,21 @@ const Cart = () => {
         style={{ fontWeight: "600", fontSize: "12px" }}
       >
         ITEM(S) ADDED
+      </div>
+      <div>
+        <select
+          value={selectedValue}
+          onChange={handleDropdownChange}
+          className="p-1 rounded w-100 "
+        >
+          {userAddress.map((option, index) => (
+            <option key={index} value={option.street}>
+              {option.street},{option.city}
+              {option.state}, {option.zipcode}
+            </option>
+          ))}
+          <option value="Add">Add</option>
+        </select>{" "}
       </div>
       <ul className="">
         {cartItems.map((item, index) => (
@@ -220,19 +271,10 @@ const Cart = () => {
         </div>
       </div>
       <div>
-        <select
-          value={selectedValue}
-          onChange={handleDropdownChange}
-          className="p-1 rounded w-100 "
-        >
-          {userAddress.map((option, index) => (
-            <option key={index} value={option.street}>
-              {option.street},{option.city}
-              {option.state}, {option.zipcode}
-            </option>
-          ))}
-          <option value="Add">Add</option>
-        </select>
+        {" "}
+        <button className="px-5 py-2 rounded-2" onClick={handlePayment}>
+          Pay
+        </button>
       </div>
       {/* Bootstrap Modal */}
       <Modal show={showModal} onHide={handleModalClose}>
